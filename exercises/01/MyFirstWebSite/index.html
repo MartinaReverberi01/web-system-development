@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Presentation - Martina & Nicholas</title>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-rose:#8f6d74;   /* sfondo più scuro */
+      --card-rose:#f6dee1; /* box rosa più chiaro */
+      --green:#0f2b20;     /* verde scuro */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Anton", sans-serif;
+      background: var(--bg-rose);
+      color: var(--green);
+      padding: 4.5rem;
+    }
+
+    /* --------- HERO --------- */
+    .hero {
+      grid-column: span 2;
+      position: relative;
+      background: var(--green);
+      border-radius: 18px;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 7rem;
+    }
+
+    .title-arc {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300%;
+      height: 450px;
+    }
+
+    .title-arc text {
+      font-size: clamp(160px, 14vw, 240px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      fill: var(--card-rose);
+    }
+
+    .hero-photo {
+      position: absolute;
+      left: 50%;
+      bottom: 120px;
+      transform: translateX(-50%);
+      width: min(480px, 40vw);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 22px 35px rgba(0,0,0,0.5));
+    }
+
+    .credit {
+      position: absolute;
+      bottom: 25px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--card-rose);
+      letter-spacing: 0.1em;
+    }
+    .credit--left { left: 40px; }
+    .credit--right { right: 40px; text-transform: uppercase; }
+
+    /* --------- Griglia --------- */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .card {
+      background: var(--card-rose);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+    .card.dark { background: var(--green); color: var(--card-rose); }
+    .card h2 { margin: 0 0 1rem; font-size: 1.6rem; }
+
+    .grid-images { display: grid; grid-template-columns: repeat(3,1fr); gap: .7rem; }
+    .grid-images img { width: 100%; border-radius: 6px; }
+
+    .link-loyola {
+      color: var(--card-rose);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .link-loyola:hover { color: #ffb6c1; }
+
+    .link-uni {
+      color: var(--green);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    footer {
+      grid-column: span 2;
+      text-align: center;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      color: var(--card-rose);
+      background: var(--green);
+      border-radius: 10px;
+      max-width: 1200px;
+    }
+
+    /* --------- Responsive --------- */
+    @media (max-width:800px) {
+      body { padding: 2rem; }
+      .container { grid-template-columns: 1fr; }
+      .hero { min-height: 460px; padding-bottom: 7rem; }
+      .hero-photo { width: min(300px, 55vw); bottom: 120px; }
+      .credit--left { left: 16px; }
+      .credit--right { right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONTENITORE PRINCIPALE -->
+  <main class="container">
+
+    <header class="hero">
+      <!-- h1 richiesto dalla consegna: visibile per screen reader, invisibile sul layout -->
+      <h1 class="visually-hidden">Martina Reverberi & Nicholas Braglia</h1>
+
+      <svg class="title-arc" viewBox="0 0 4000 1200" preserveAspectRatio="xMidYMid meet">
+        <path id="arc" d="M 200 900 A 3600 1000 0 0 1 3800 900" fill="none"/>
+        <text>
+          <textPath href="#arc" startOffset="50%" text-anchor="middle">
+            ERASMUS STUDENTS
+          </textPath>
+        </text>
+      </svg>
+
+      <img class="hero-photo" src="hero.png" alt="Martina e Nicholas a Siviglia">
+
+      <!-- Nomi e info come crediti -->
+      <span class="credit credit--left">MARTINA REVERBERI <br> NICHOLAS BRAGLIA</span>
+      <span class="credit credit--right">SEVILLA <br> 2025/2026</span>
+    </header>
+
+    <!-- CHI SIAMO -->
+    <section class="card">
+      <h2>Who we are</h2>
+      <ul>
+        <li><strong>Martina Reverberi</strong> – 24, from Reggio Emilia, Italy. Master’s degree in Computer Engineering (AI) at <a href="https://www.unipr.it/" target="_blank" class="link-uni">UniPR</a>.</li>
+        <li><strong>Nicholas Braglia</strong> – 21, from Modena, Italy. Bachelor’s degree in Computer Engineering at <a href="https://www.unimore.it/" target="_blank" class="link-uni">UniMORE</a>.</li>
+      </ul>
+    </section>
+
+    <!-- ESPERIENZA -->
+    <section class="card dark">
+      <h2>Erasmus Experience</h2>
+      <p>This is our very first Erasmus adventure and also the first time we are living in Seville.
+         We are really excited about this opportunity, which we see as an <em>important step</em> 
+         for both our personal growth and our professional development.
+         Although the beginning has not always been easy, adapting to a new city and culture,
+         we are motivated and ready to make the most of this experience. 
+         Studying Computer Engineering in an international environment gives us the chance to broaden 
+         our perspectives and improve our skills in a field that is constantly evolving.</p>
+    </section>
+
+    <!-- UNIVERSITÀ LOYOLA -->
+    <section class="card dark">
+      <h2>Why we chose Loyola University</h2>
+      <p>We chose Loyola University in Seville because of its international environment and the chance
+         to experience a different academic approach. The university offers us the opportunity to grow
+         not only in our studies but also in a multicultural setting, meeting students and professors
+         from all over the world. Loyola felt like the right place to combine education, culture, and
+         personal discovery.</p>
+      <a href="https://www.uloyola.es/" target="_blank" class="link-loyola">Visit Loyola's Official Website</a>
+    </section>
+
+    <!-- SEVILLA -->
+    <section class="card">
+      <h2>Discovering Seville</h2>
+      <p>Living in Seville is already a unique experience. The city welcomes us with its warm atmosphere,
+         stunning architecture, and lively traditions. From the beauty of Plaza de España to the charming
+         streets of Triana, every corner of Seville feels full of history and energy. We enjoy exploring
+         the local culture, trying new food, and experiencing the everyday rhythm of Andalusian life.</p>
+      <div class="grid-images">
+        <img src="foto1.jpg" alt="Plaza de España">
+        <img src="foto2.jpg" alt="Triana">
+        <img src="foto3.jpg" alt="Cattedrale di Siviglia">
+      </div>
+    </section>
+
+    <!-- SFIDE -->
+    <section class="card">
+      <h2>Challenges and Growth</h2>
+      <p>As with every new beginning, there have been challenges. Adapting to a new country, language,
+         and lifestyle is not always easy. However, these challenges are also opportunities: they teach
+         us resilience, flexibility, and open-mindedness. Every day we feel we are growing, both as students
+         and as individuals, learning to face situations outside of our comfort zone.</p>
+      <div class="grid-images">
+        <img src="foto4.jpg" alt="Amici">
+        <img src="foto5.jpg" alt="Viaggi">
+        <img src="foto6.jpg" alt="Eventi">
+      </div>
+    </section>
+
+    <!-- FUTURO -->
+    <section class="card">
+      <h2>Looking Ahead</h2>
+      <p>We believe this Erasmus experience will leave a lasting mark on our future. It will strengthen our
+         academic path, improve our language skills, and enrich our personal and professional outlook. Looking
+         ahead, we hope to bring back to Italy not only knowledge and skills but also unforgettable memories
+         and friendships that will stay with us for life.</p>
+      <div class="grid-images">
+        <img src="foto7.jpg" alt="Gruppo Erasmus">
+        <img src="foto8.jpg" alt="Esperienze">
+        <img src="foto9.jpg" alt="Momenti">
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2025 Martina Reverberi & Nicholas Braglia | Erasmus in Sevilla</footer>
+</body>
+</html>
