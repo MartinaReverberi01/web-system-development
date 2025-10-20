@@ -50,8 +50,14 @@ function addExpense() {
     return;
   }
 
-  expenses.push({ name, amount });
-  total += amount;
+  let amountInEuro = amount;
+
+  if (!euroToDollar) {
+    amountInEuro = amount * dollarToEuroRate;
+  }
+
+  expenses.push({ name, amount: amountInEuro });
+  total += amountInEuro;
 
   renderExpenses();
   updateTotal();
