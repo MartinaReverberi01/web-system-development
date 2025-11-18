@@ -273,18 +273,16 @@ button:hover {
 
 .layout {
   display: flex;
-  justify-content: flex-start; /* invece di center */
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 2rem;
   margin-top: 2rem;
 }
 
-/* Prodotti più larghi */
 .left-column {
   flex: 3;
 }
 
-/* Carrello più stretto */
 .right-column {
   flex: 1.2;
   max-width: 350px;
