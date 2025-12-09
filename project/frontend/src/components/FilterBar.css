@@ -1,0 +1,29 @@
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  background-color: #3b1515; 
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-bar select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #2a0f0f;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.filter-bar select:hover {
+  background-color: #3b1515;
+  border-color: #777;
+}
+
+.products-page {
+  padding: 20px 40px;
+}
+

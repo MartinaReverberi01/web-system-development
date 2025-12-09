@@ -1,0 +1,77 @@
+.admin-page {
+  background: #4f1f1f;       
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Title */
+.admin-page h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* Button: Add new product */
+.btn--primary {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+/* Table */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #7a0000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.admin-table thead {
+  background: #000000;
+}
+
+.admin-table th {
+  padding: 14px;
+  text-align: left;
+  font-size: 18px;
+  border-bottom: 2px solid #660000;
+}
+
+.admin-table td {
+  padding: 14px;
+  font-size: 16px;
+  border-bottom: 1px solid #660000;
+}
+
+/* Action Buttons */
+.btn-small {
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 8px;
+  color: white;
+  background:  #0066cc;
+}
+
+
+.btn-danger {
+  background: #000000;
+}
+
+.btn-danger:hover {
+  background: #813939;
+}
+
+/* Spacing adjustments */
+.admin-table tr:last-child td {
+  border-bottom: none;
+}

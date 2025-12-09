@@ -1,0 +1,34 @@
+.product-details {
+  background-color: #4f1f1f;
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  display: flex;
+  gap: 40px;
+}
+
+.details__image {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+}
+
+.details__info {
+  max-width: 500px;
+}
+
+.details__info select,
+.details__info input {
+  padding: 6px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.details__old-price {
+  text-decoration: line-through;
+  opacity: 0.7;
+  margin-left: 8px;
+  color: #ddd;
+}
