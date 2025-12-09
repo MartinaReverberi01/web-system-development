@@ -1,8 +1,11 @@
 # Web System Development
 
-Repository per gli esercizi e il progetto del corso.
+Repository for exercises and the course project.
 
-## Struttura
-- `exercises/01/` → primo esercizio
-- `exercises/02/` → secondo esercizio
-- `project/` → cartella del progetto finale
+## Structure
+- `exercises/01/` → first exercise
+- `exercises/02/` → second exercise
+- `exercises/03/` → third exercise
+- `exercises/04/` → fourth exercise
+- `exercises/05/` → fifth exercise
+- `project/` → final project folder
