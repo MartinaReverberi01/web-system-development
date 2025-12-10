@@ -11,9 +11,9 @@ This project is a fully functional full-stack e-commerce web application built w
 
 The platform includes a customer area and a complete admin dashboard for product management.
 
-# Features
+## Features
 
-# User Features
+### User Features
 - Browser products
 - Filter products by price and size
 - View product details
@@ -22,7 +22,7 @@ The platform includes a customer area and a complete admin dashboard for product
 - Persistent cart using localStorage
 - Checkout simulation with confirmation page
 
-# Admin Features
+### Admin Features
 - Create new products
 - Upload product images
 - Edit product details
@@ -31,9 +31,9 @@ The platform includes a customer area and a complete admin dashboard for product
 - Mark products as on sale
 - Dashboard with table view
 
-# Technology Stack
+## Technology Stack
 
-# Frontend
+### Frontend
 - React 19
 - Vite
 - React Router
@@ -41,14 +41,14 @@ The platform includes a customer area and a complete admin dashboard for product
 - React Context API (cart)
 - Client-side validation (Zod)
 
-# Backend
+### Backend
 - Node.js
 - Express
 - Multer (image upload)
 - SQLite3 (database)
 - Server-side validation (Zod)
 
-# Installation Instructions Backend
+## Installation Instructions Backend
 cd backend --> npm install --> npm start (to start the server). The backend runs on: http://localhost:4000
 
 ## Installation Instructions Frontend
@@ -56,23 +56,23 @@ cd frontend --> npm install --> npm run dev. The frontend runs on: http://localh
 
 ## API Documentation
 
-# Products
+### Products
 - GET /products --> Returns all products with: category, subcategory, total quantity, sizes_summary.
 - GET /products/:id --> Returns one product + all sizes.
 - POST /products --> Create a new product.
 - PUT /products/:id --> Update an existing product.
 - DELETE /products/:id --> Delete product + related quantities.
 
-# Categories
+### Categories
 - GET /categories --> Returns the list of categories.
 
-# Subcategories
+### Subcategories
 - GET /subcategories?category_id= --> Returns all subcategories of a category.
 
-# Uploads
+### Uploads
 - POST /upload --> Upload your product image.
 
-# Database Structure
+## Database Structure
 Tables:
 - categories
 - subcategories
