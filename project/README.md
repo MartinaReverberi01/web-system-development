@@ -78,3 +78,5 @@ Tables:
 - subcategories
 - products
 - product_sizes
+
+![ER Diagram](./ER-diagram.png)
