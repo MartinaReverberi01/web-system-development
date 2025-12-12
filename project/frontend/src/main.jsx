@@ -11,10 +11,6 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Cart from "./pages/Cart.jsx";
 import ProductForm from "./pages/ProductForm.jsx";
 
-import Man from "./pages/Man.jsx";
-import Woman from "./pages/Woman.jsx";
-import Shoes from "./pages/Shoes.jsx";
-import Accessories from "./pages/Accessories.jsx";
 import Checkout from "./pages/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 
@@ -33,13 +29,6 @@ const router = createBrowserRouter([
       { path: "/checkout", element: <Checkout /> },
       { path: "/success", element: <CheckoutSuccess /> },
 
-
-
-      // CATEGORY
-      { path: "/man", element: <Man /> },
-      { path: "/woman", element: <Woman /> },
-      { path: "/shoes", element: <Shoes /> },
-      { path: "/accessories", element: <Accessories /> },
     ],
   },
 ]);
