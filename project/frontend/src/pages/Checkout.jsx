@@ -1,19 +1,44 @@
 import { useCart } from "../context/CartContext";
 import "./Checkout.css";
+import { useState } from "react";
 
 export default function Checkout() {
   const { cart, totalItems, clearCart } = useCart();
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const total = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
-  function handlePayment(e) {
+  async function handlePayment(e) {
     e.preventDefault();
-    alert("Pagamento completato con successo!");
-    clearCart();
-    window.location.href = "/success";   
+    setIsProcessing(true);
+
+    try {
+      const response = await fetch("http://localhost:4000/products/checkout", { 
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cart }), // Inviamo l'intero array del carrello
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Error during the payment");
+      }
+
+      alert("Payment successfully completed");
+      clearCart();
+      window.location.href = "/success"; 
+
+    } catch (error) {
+      console.error("Checkout error:", error);
+      alert("Error: " + error.message);
+    } finally {
+      setIsProcessing(false);
+    }
   }
 
   return (
