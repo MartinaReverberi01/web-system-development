@@ -213,3 +213,55 @@ exports.deleteProduct = (req, res) => {
     );
   });
 };
+
+exports.processCheckout = (req, res) => {
+  const { cart } = req.body;
+
+  if (!cart || !Array.isArray(cart) || cart.length === 0) {
+    return res.status(400).json({ error: "Cart is empty or invalid" });
+  }
+
+  db.serialize(() => {
+    db.run("BEGIN TRANSACTION");
+
+    const updateQuantity = db.prepare(`
+      UPDATE product_sizes 
+      SET quantity = quantity - ? 
+      WHERE product_id = ? AND size = ?
+    `);
+
+    const cleanupZeroQuantity = db.prepare(`
+      DELETE FROM product_sizes 
+      WHERE quantity <= 0
+    `);
+
+    let errorOccurred = false;
+
+    cart.forEach((item) => {
+      updateQuantity.run(item.quantity, item.id, item.size, function(err) {
+        if (err) {
+          console.error("Error updating stock:", err.message);
+          errorOccurred = true;
+        }
+      });
+    });
+
+    updateQuantity.finalize(() => {
+      if (errorOccurred) {
+        db.run("ROLLBACK");
+        return res.status(500).json({ error: "Error processing checkout" });
+      }
+
+      cleanupZeroQuantity.run((err) => {
+        cleanupZeroQuantity.finalize();
+        
+        if (err) {
+            console.error("Error cleanup:", err);
+        }
+
+        db.run("COMMIT");
+        res.json({ message: "Checkout successful, inventory updated" });
+      });
+    });
+  });
+};
